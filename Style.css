@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+}
+html,
+      body {
+        /*usando o --gray que é uma variavel com o nome
+        que vc escolher ou seja , para definir uma variavel no css usa-se -- (2 traços+ nome definido) neste caso estou atribuindo uma cor a variavel gray, assim
+        pode-se usar essas cores para outras etapas do projeto*/
+        --black: hsl(240, 6%, 13%);
+        --grey: hsl(240, 9%, 89%);
+        
+        height: 100%;
+        font-family: 'Roboto', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        display: grid;
+        place-items: center;
+      }
+      main {
+        background: url(images/Background.svg);
+        width: 375px;
+        height: 812px;
+        
+      }
+      .container{
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: var(--grey);
+      }
+      .avatar {
+        width: 10rem;
+        margin: 11.5rem auto 0;
+        /*usando o position: relative a minha imagem avatar se torna o topo da pagina, sendo assim o selo abaixo no span fica de forma absoluta a -15px do topo da minha page*/
+        position: relative;
+      }
+        /*Usando o position: absolute , cria niveis de empilhamento, ou seja ele fica a frente, porém ele é absoluto na pagina inteira e deve ser feito alguns ajustes para melhor posiciona-lo!*/
+        /*observe que ao inserir o clip-path para mudar o formato da imgem, a imagem Selo (span), voltou para tras, aplicando o z-index ele corrige*/
+      .avatar span {
+        position: absolute;
+        top: -15px;
+        z-index: 1;
+      }
+        /*aplicando atributos na imagem usando css, neste caso observe o sinal de maior (>), significa que como  temos 2 imagens na classe avatar, se faz necessario definir em qual img vai ser aplicada, o sinal de maior significa que esta sendo aplicada na que esta em primeiro nivel, ou seja, a que vem primeiro*/
+        /*object-fit - img se adapta dentro do espaço, 
+        usando Cover= cobrir*/
+      .avatar > img {
+        width: 10rem;
+        height: 11.5rem;
+        object-fit: cover;
+        /*Mudando formato de img conforme abaixo, para obter exatidão nos tamanhos segu link:https://bennettfeely.com/clippy/*/
+        clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+
+      }
+      h1 {
+        font-size: 1.5rem;
+        margin-top: 1.5rem;
+        
+      }
+      a {
+        color: var(--grey);
+        text-decoration: none;
+        margin-top: 0.25rem;
+        display: flex;
+        gap: 0.75rem;
+        justify-content: center;
+        align-items: center; /*só uma garantia de alinhamento*/
+      }
+      p {
+        margin-top: 2rem;
+      }
+      ul {
+        /*list style none, tira as bolinhas da listagem
+        padding 0px,tira o prenchimento externo
+        display flex, alinha lado a lado, eixo vertical 
+        gap, espaçamento
+        justify-content, centraliza
+        Lembrando que as propriedades gap e justify só funcionam qdo utiliza-se o atributo flex e o grid*/
+        margin-top: 4rem;
+        list-style: none;
+        padding: 0px;
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+      }
+      
+      
